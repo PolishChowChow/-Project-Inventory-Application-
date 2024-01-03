@@ -6,13 +6,16 @@ const cookieParser = require('cookie-parser');
 const mongoose = require("mongoose")
 const logger = require('morgan');
 
+const shopRouter = require('./routes/shop')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 async function connection(){
-  await mongoose.connect(process.env.URL || "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1")
+  await mongoose.connect(process.env.URL || "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1",{
+    dbName: "inventory"
+  })
 }
-connection().catch(err => next(err))
+connection().catch(err => console.log(err))
 
 
 const app = express();
@@ -29,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/shop', shopRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
