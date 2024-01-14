@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler")
 const Part = require("../models/part")
 const { name } = require("ejs")
 exports.get_all_categories = asyncHandler(async(req, res, next) => {
-    const categories = Category.find({})
+    const categories = await Category.find({})
     res.render("categories", {
         categories: categories,
     })

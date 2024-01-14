@@ -1,5 +1,15 @@
 <%-include("components/header")%>
 <main>
     <h2>All Categories</h2>
+    <div class="items categories">
+        <% categories.forEach(category => {%>
+            <a href="<%=category.category_url%>" class="item">
+                <div class="shadow">
+                    <%=category.name%>
+                </div>
+            </a>
+        <%})%>
+    </div>
+
 </main>
 <%-include("components/footer")%>

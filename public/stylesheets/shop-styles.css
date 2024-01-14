@@ -16,11 +16,12 @@
   --font-very-large: 32px;
 
   --padding-very-small: 7px 15px;
-  --padding-small: 10px 18px;
   --padding-small: 24px;
   --padding-medium: 36px;
   --padding-large: 48px;
 
+  --shadow-on-box-light: rgba(0,0,0,0.4);
+  --shadow-on-box-medium: rgba(0,0,0,0.7);
 
   --default-transition: all .2s ease-in-out;
 }
@@ -77,6 +78,42 @@ header .mobile-nav ul{
 .icon{
   display: none;
 }
+.items{
+  display: grid;
+  place-items: center;
+  gap: var(--padding-small);
+  width: 70%;
+  margin: auto;
+}
+
+.items.categories{
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.items.categories > .item{
+  position: relative;
+  width: 300px;
+  height: 500px;
+  background-color: var(--color-light);
+  background-image: url("https://images.pexels.com/photos/159293/car-engine-motor-clean-customized-159293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+.items.categories > .item > .shadow{
+  position: absolute;
+  z-index: 1;
+  background-color: var(--shadow-on-box-light);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: var(--font-large);
+  box-shadow: 3px 3px 3px var(--shadow-on-box-medium);
+}
+.items.categories > .item > .shadow:hover{
+  background-color: var(--shadow-on-box-medium);
+  transition: var(--default-transition);
+  
+}
 #btn-nav{
   background-color: var(--color-dark-gray);
   color: var(--color-light);
@@ -87,7 +124,7 @@ header .mobile-nav ul{
   font-size: var(--font-very-small);
 }
 
-h2 > main{
+main > h2{
   text-align: center;
 }
 
@@ -108,6 +145,7 @@ h2 > main{
     }
 }
 footer{
+  margin-top: var(--padding-small);
   text-align: center;
   font-size: medium;
   padding: var(--padding-small);
