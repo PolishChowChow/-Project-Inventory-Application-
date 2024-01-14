@@ -6,16 +6,22 @@
   --color-primary-very-light: #F8EDFF;
   --color-light: #EEE;
   --color-dark-gray: #333;
-  
+  --border-thin-1: 2px solid;
+  --border-thin-2: 4px solid;
   --font-very-small: 14px;
   --font-small: 18px;
   --font-medium: 22px;
+  --font-greater-medium: 24px;
   --font-large: 28px;
   --font-very-large: 32px;
 
+  --padding-very-small: 7px 15px;
+  --padding-small: 10px 18px;
   --padding-small: 24px;
   --padding-medium: 36px;
   --padding-large: 48px;
+
+
   --default-transition: all .2s ease-in-out;
 }
 body {
@@ -24,7 +30,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-size: var(--font-medium);
   font-family: Arial, Helvetica, sans-serif;
 }
 main{
@@ -33,16 +38,16 @@ main{
 header > div{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 120px;
   padding: 0 30px;
   background-color: var(--color-light);
-}
-header > div > nav{
-  flex: 1;
+  font-size: var(--font-small);
 }
 header ul{
   margin: 0;
   display: flex;
+  
   list-style-type: none;
 }
 header .mobile-nav ul{ 
@@ -53,7 +58,7 @@ header .mobile-nav ul{
   cursor: pointer;
   text-align: center;
   padding: var(--padding-small);
-  border: 3px solid transparent;
+  border: var(--border-thin-2) transparent;
   transition: var(--default-transition);
 }
 .link-container:hover{
@@ -69,8 +74,24 @@ header .mobile-nav ul{
 .mobile-nav.active{
   display: block;
 }
+.icon{
+  display: none;
+}
+#btn-nav{
+  background-color: var(--color-dark-gray);
+  color: var(--color-light);
+  padding: var(--padding-very-small);
+  border: var(--border-thin-1) var(--color-dark-gray);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: var(--font-very-small);
+}
 
-@media screen and (max-width:700px) {
+h2 > main{
+  text-align: center;
+}
+
+@media screen and (max-width:780px) {
     .desktop-nav{
       display: none;
     }
@@ -80,7 +101,10 @@ header .mobile-nav ul{
     header > div {
       justify-content: space-between;
       font-size: medium;
-      padding: 0;
+      padding: var(--padding-small);
+    }
+    .icon{
+      display: block;
     }
 }
 footer{
