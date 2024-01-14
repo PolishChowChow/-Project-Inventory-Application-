@@ -1,11 +1,24 @@
 <%-include("components/header")%>
-<main>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, est. Omnis quo nesciunt libero, unde dolor illo iusto quod, tempora consequuntur repellendus magnam dignissimos accusantium reprehenderit error, ducimus nisi ipsa.
-    <h3>sponsors:</h3>
 
-    <%brands.forEach(brand => { %>
-        <div><%=brand.name%></div>
-    <% }) %> 
+<main class="no-margin">
+    <section class="desc">
+        <h2>Our offer</h2>
+        <p>Revolutionize your driving experience with our cutting-edge car parts concept! At Inventory Store, we understand the importance of performance, safety, and style when it comes to your vehicle. Our innovative car parts concept brings together the latest in automotive technology and design, offering you a seamless blend of reliability and aesthetics.</p>
+        <p>        Explore a world where precision engineering meets unparalleled durability. From high-performance brakes to state-of-the-art infotainment systems, our car parts concept is meticulously crafted to elevate your driving pleasure. Unleash the full potential of your vehicle with our premium range of components that not only enhance performance but also ensure your safety on the road.</p>
+    </section>
+    <section class="intro">
+        <div>
+            <p>Are you Interested?</p>
+            <a href="/shop/parts" id="see-more-btn">See More</a>
+        </div>
+    </section>
+    <h2>sponsors:</h2>
+
+    <div class="brands">
+        <%brands.forEach(brand => { %>
+            <a href="<%=brand.official_website%>" class="brand"><%=brand.name%></a>
+        <% }) %> 
+    </div>
 
 </main>
 <%-include("components/footer")%>

@@ -14,9 +14,9 @@ async function connection(){
   await mongoose.connect(process.env.URL || "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1",{
     dbName: "inventory"
   })
+  console.log("connected to db")
 }
 connection().catch(err => console.log(err))
-
 
 const app = express();
 

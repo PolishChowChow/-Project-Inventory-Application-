@@ -1,13 +1,23 @@
 <%-include("components/header")%>
 <main>
-    <h2>Parts</h2>
-    <%parts.forEach(part => { %>
-        <div><%=part.name%></div>
-    <% }) %> 
+    <h2>Parts</h2>   
     <div class="items">
-        <div class="item">
-            
+        <%parts.forEach(part => { %>
+        <div class="part-item">
+            <div class="image">
+                <img src="https://images.pexels.com/photos/4022543/pexels-photo-4022543.jpeg?auto=compress&cs=tinysrgb&w=600" alt="part" />
+            </div>
+            <div class="title">
+                <%=part.brand.name%> <%=part.name%>
+            </div>
+            <div class="price">
+                <%=part.price%>
+                <a href="<%=part.part_url%>">
+                    See Details
+                </a>
+            </div>
         </div>
+        <% }) %> 
     </div>
 
 </main>

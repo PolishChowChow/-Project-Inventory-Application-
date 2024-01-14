@@ -1,13 +1,11 @@
 <%-include("components/header")%>
 <main>
-    <h2>Parts</h2>
-    <%contacts.forEach(contact => { %>
-        <div><%=contact.name%></div>
-    <% }) %> 
-    <div class="items">
-        <div class="item">
-            
-        </div>
+    <h2>Contacts</h2>
+    
+    <div class="contacts">
+        <%contacts.forEach(contact => { %>
+            <div class="item"><%=contact.name%>: <span class="copy-link" data-copy><%=contact.value%></span></div>
+        <% }) %> 
     </div>
 
 </main>

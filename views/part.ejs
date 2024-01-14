@@ -1,1 +1,22 @@
-<h1>Part</h1>
+<%-include("components/header")%>
+<main>
+  <h2>Part</h2>
+  <div class="item-center">
+    <div class="item-container">
+      <div class="img">
+        <img
+          src="https://images.pexels.com/photos/7787703/pexels-photo-7787703.jpeg?auto=compress&cs=tinysrgb&w=600"
+          alt="part"
+        />
+      </div>
+      <div class="details">
+        <h3><%=part.name%></h3>
+        <p>Brand: <a href="<%=part.brand.url%>"><%=part.brand.name%></a></p>
+        <p>In Stock: <%=part.amount_in_stock%></p>
+        <p>Price: <%=part.price%>$</p>
+        <a href="<%=part.category.category_url%>" class="category-name">#<%=part.category.name%></a>
+      </div>
+    </div>
+  </div>
+</main>
+<%-include("components/footer")%>
