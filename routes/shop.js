@@ -4,7 +4,6 @@ const { get_all_parts, get_specific_part } = require('../controllers/partsContro
 const { get_all_contacts } = require('../controllers/contactsController');
 const router = express.Router();
 
-/* GET home page. */
 router.get('/',(req, res, next) => {
     res.render("home")
 });
@@ -14,4 +13,8 @@ router.get('/categories/:name/:id', get_item_in_specific_category)
 router.get('/parts', get_all_parts);
 router.get('/parts/:id', get_specific_part)
 router.get('/contact', get_all_contacts)
+router.get('/about', (req, res, next) => {
+    res.render("about")
+})
+
 module.exports = router;
