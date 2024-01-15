@@ -1,0 +1,45 @@
+body {
+    display: grid;
+    place-content: center;
+    background-color: var(--color-light);
+}
+h2{
+    text-align: center;
+}
+
+label, input{
+    font-size: var(--font-small);
+}
+form{
+    padding: var(--padding-large) var(--padding-medium);
+    display: grid;
+    gap: 10px;
+    margin-bottom: 200px;
+}
+input{
+    background-color: var(--color-light);
+    padding: var(--padding-very-small);
+    border: var(--border-thin-1) transparent;
+    outline: none;
+    border-bottom-color: var(--color-primary-dark);
+}
+input:focus-visible{
+    border-bottom-color: var(--color-primary);
+}
+button{
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding: var(--padding-very-small);
+    background-color: var(--color-primary-dark);
+    border: var(--border-thin-1) var(--color-primary-dark);
+    color: var(--color-light);
+    font-size: var(--font-small);
+    border-radius: 12px;
+    transition: var(--default-transition);
+}
+button:hover{
+    cursor: pointer;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}

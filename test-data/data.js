@@ -11,7 +11,7 @@ const Brand = require("../models/brand");
 const Category = require("../models/category");
 const Contact = require("../models/contact");
 const Part = require("../models/part");
-
+const User = require("../models/user")
 const brands = [];
 const categories = [];
 const contacts = [];
@@ -30,10 +30,11 @@ async function main() {
     dbName:"inventory"
   });
   console.log("Debug: Should be connected?");
-  await createBrands();
-  await createCategories();
-  await createContacts();
-  await createParts();
+  // await createBrands();
+  // await createCategories();
+  // await createContacts();
+  // await createParts();
+  await createUser();
   console.log("Debug: Closing mongoose");
   mongoose.connection.close();
 }
@@ -317,4 +318,11 @@ async function createParts(){
         180.99,
       )
   ])
+}
+async function createUser(){
+  const user = new User({
+    username: "admin",
+    password: "test123"
+  })
+  await user.save()
 }
