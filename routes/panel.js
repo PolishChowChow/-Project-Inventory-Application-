@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const { loginStrategy } = require('../strategies/loginStrategy');
 const ensureAuthenticated = require('../controllers/authController');
+const { get_all_stats } = require('../controllers/mainController');
 passport.use(loginStrategy)
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
@@ -17,9 +18,7 @@ passport.deserializeUser(function(user, cb) {
 });
 
 
-router.get('/', ensureAuthenticated, (req, res, next) => {
-  res.render("panel")
-});
+router.get('/', ensureAuthenticated, get_all_stats);
 router.get('/login', (req, res, next) => {
     res.render("login")
 })

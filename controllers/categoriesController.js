@@ -4,23 +4,21 @@ const Part = require("../models/part")
 const { name } = require("ejs")
 exports.get_all_categories = asyncHandler(async(req, res, next) => {
     const categories = await Category.find({})
-    res.render("categories", {
-        categories: categories,
-    })
+    req.categories = categories
+    next();
+    
 })
 exports.get_items_by_specific_category = asyncHandler(async(req, res, next) => {
     const categoryId = await Category.find({name: req.params.name},{_id:1})
     const partsByCategory = await Part.find({category: categoryId})
-    res.render("parts", {
-        category: req.params.name,
-        parts: partsByCategory,
-    })
+    req.category = req.params.name
+    req.parts = partsByCategory
+    next();
 })
 exports.get_item_in_specific_category = asyncHandler(async(req, res, next) => {
     const category = await Category.find({name: name})
     const partByCategory = await Part.find({_id: req.params.id, category: category.id})
-    res.render("part", {
-        category: req.params.name,
-        parts: partByCategory,
-    })
+    req.category = req.params.name
+    req.parts = partByCategory
+    next();
 })

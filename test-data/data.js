@@ -30,11 +30,11 @@ async function main() {
     dbName:"inventory"
   });
   console.log("Debug: Should be connected?");
-  // await createBrands();
-  // await createCategories();
-  // await createContacts();
-  // await createParts();
-  await createUser();
+  await createBrands();
+  await createCategories();
+  await createContacts();
+  await createParts();
+  // await createUser();
   console.log("Debug: Closing mongoose");
   mongoose.connection.close();
 }
