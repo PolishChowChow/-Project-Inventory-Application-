@@ -3,6 +3,8 @@ const asyncHandler = require("express-async-handler");
 
 exports.get_all_parts = asyncHandler(async(req, res, next) => {
     const parts = await Part.find({})
+    .populate("brand")
+    .populate("category")
     req.category = null;
     req.parts = parts;
     next();

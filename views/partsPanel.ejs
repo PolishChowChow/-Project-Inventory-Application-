@@ -1,0 +1,32 @@
+<%-include('components/panel-core')%>
+<main>
+    <h2>Parts panel</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Amount In Stock</th>
+            <th>Price</th>
+        </tr>
+        <%parts.forEach(part => { %>
+            <tr>
+                <td>
+                    <%=part.name%>
+                </td>
+                <td>
+                    <%=part.brand.name%>
+                </td>
+                <td>
+                    <%=part.category.name%>
+                </td>
+                <td>
+                    <%=part.amount_in_stock%>
+                </td>
+                <td>
+                    <%=part.price%>
+                </td>
+            </tr>
+        <%})%>
+    </table>
+</main>

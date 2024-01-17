@@ -4,6 +4,7 @@ const router = express.Router();
 const { loginStrategy } = require('../strategies/loginStrategy');
 const ensureAuthenticated = require('../controllers/authController');
 const { get_all_stats } = require('../controllers/mainController');
+const { get_all_parts } = require('../controllers/partsController');
 passport.use(loginStrategy)
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
@@ -18,15 +19,12 @@ passport.deserializeUser(function(user, cb) {
 });
 
 
-router.get('/', ensureAuthenticated, get_all_stats);
-router.get('/login', (req, res, next) => {
-    res.render("login")
-})
+
 router.post('/login',passport.authenticate('local', {
   successRedirect: "/panel",
   failureRedirect: "/panel/login"
 }))
-router.post('/logout', (req, res, next) => {
+router.get('/logout', (req, res, next) => {
   req.logout(function(err){
     if(err){
       return next(err)
@@ -34,4 +32,19 @@ router.post('/logout', (req, res, next) => {
     res.redirect("/panel")
   })
 })
+router.get('/login', (req, res, next) => {
+  res.render("login")
+})
+
+router.use(ensureAuthenticated)
+
+router.get('/', get_all_stats);
+router.get('/parts', get_all_parts, (req, res, next) => {
+  res.render("partsPanel",{
+    parts: req.parts
+  })
+});
+
+
+
 module.exports = router;

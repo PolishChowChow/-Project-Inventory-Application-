@@ -4,10 +4,12 @@ function ensureAuthenticated(req, res, next) {
   res.header("Expires", "-1");
   res.header("Pragma", "no-cache");
   if (req.isAuthenticated()) {
-    return next(); // User is authenticated, proceed to the next middleware/route
+    next()
+    return;
   }
-
-  res.redirect("/panel/login"); // Redirect to the login page if not authenticated
+    res.redirect("/panel/login")
+    return;
+  
 }
 
 module.exports = ensureAuthenticated;

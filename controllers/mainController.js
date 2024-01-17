@@ -11,7 +11,7 @@ exports.get_all_stats = asyncHandler(async(req, res, next) => {
       category.countDocuments(),
       contact.countDocuments(),
     ])
-    res.render("data",{
+    res.render("stats",{
         partsCount,
         brandsCount,
         categoriesCount,
