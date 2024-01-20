@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/global-settings.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>Panel</title>
+</head>
+<body>
+    <h2><%=title%></h2>
+    <form action="" method="post">
+        <div>
+            <label for="name">
+                Name:<br>
+                <input type="text" name="name" id="name" value="<%=undefined === brand ? '' : brand.name%>">
+            </label>
+        </div>
+        <div>
+            <label for="description">
+                Description:<br>
+                <input type="text" name="description" id="description" value="<%=undefined === brand ? '' : brand.description%>">
+            </label>
+        </div>
+        <div>
+            <label for="co_founder">
+                Co-founder:<br>
+                <input type="text" name="co_founder" id="co_founder" value="<%=undefined === brand ? '' : brand.co_founder%>">
+            </label>
+        </div>
+        <div>
+            <label for="official_webiste">
+                Website URL (optional):<br>
+                <input type="text" name="official_website" id="official_webiste" value="<%=undefined === brand ? '' : brand.official_website%>">
+            </label>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

@@ -19,3 +19,27 @@ exports.get_specific_part = asyncHandler(async(req, res, next) => {
     req.part = specificPart
     next()
 })
+exports.get_part_delete = asyncHandler(async(req, res, next) => {
+    res.render("deleteForm", {
+        id: req.params.id,
+        parts: undefined,
+        filter: "part"
+    })
+})
+exports.post_part_update = asyncHandler(async(req, res, next) => {
+    const part = req.body;
+    const id = req.params.id;
+    await Part.updateOne({_id: id},part);
+    next()
+})
+exports.post_part_add = asyncHandler(async(req, res, next) => {
+    const part = new Part(req.body);
+    await part.save();
+    next()
+})
+
+exports.post_part_delete = asyncHandler(async(req, res, next) => {
+    const id = req.params.id;
+    await Part.findByIdAndDelete(id);
+    res.redirect("/panel/part")
+})

@@ -1,0 +1,25 @@
+<%-include('components/panel-core')%>
+<main>
+  <h2>Parts panel</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Co-Founder</th>
+      <th>Delete</th>
+    </tr>
+    <%brands.forEach(brand => { %>
+    <tr>
+      <td>
+        <a href="/panel/update/brand/<%=brand._id%>"> <%=brand.name%> </a>
+      </td>
+      <td><%=brand.description%></td>
+
+      <td><%=brand.co_founder%></td>
+      <td>
+        <a href="/panel/delete/brand/<%=brand._id%>">Delete</a>
+      </td>
+    </tr>
+    <%})%>
+  </table>
+</main>

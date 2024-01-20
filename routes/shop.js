@@ -6,7 +6,6 @@ const { get_all_brands, get_specific_brand } = require('../controllers/brandCont
 const router = express.Router();
 
 router.get('/',get_all_brands, (req, res, next) => {
-    console.log(req)
     res.render("home",{
         brands: req.brands
     })

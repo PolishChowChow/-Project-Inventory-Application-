@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/global-settings.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>Panel</title>
+</head>
+<body>
+    <h2>Delete a <%=filter%></h2>
+    <div>
+        <% if(parts){ %>
+            <p>Cannot remove this <%=filter%>, cause there are parts using it. Delete all parts using it and then try to remove <%=filter%></p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                    <th>Amount In Stock</th>
+                    <th>Price</th>
+                </tr>
+                <%parts.forEach(part => { %>
+                    <tr>
+                        <td>
+                            <a href="/panel/update/part/<%=part._id%>">
+                                <%=part.name%>
+                            </a>
+                        </td>
+                        <td>
+                            <%=part.brand.name%>
+                        </td>
+                        <td>
+                            <%=part.category.name%>
+                        </td>
+                        <td>
+                            <%=part.amount_in_stock%>
+                        </td>
+                        <td>
+                            <%=part.price%>
+                        </td>
+                    </tr>
+                <%})%>
+            </table>
+        <% }else{ %>
+            <p>Are you sure you want to delete this <%=filter%></p>
+            <form action="" method="post">
+                <button type="submit">Yes</button>
+            </form>
+
+            <a href="/panel/<%=filter%>" id="delete-rejection"></a>
+        <% } %>
+    </div>
+</body>
+</html>

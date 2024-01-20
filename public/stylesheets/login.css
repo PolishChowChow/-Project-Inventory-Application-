@@ -43,3 +43,17 @@ button:hover{
     background-color: var(--color-primary);
     border-color: var(--color-primary);
 }
+table{
+    font-size: 14px;
+    max-width: 1000px;
+    border-collapse: collapse;
+}
+td, th{
+    border: var(--border-thin-1) black;
+    padding: var(--padding-small)
+}
+a{
+    font-size: var(--font-small);
+    color: var(--color-dark);
+    text-decoration: none;
+}

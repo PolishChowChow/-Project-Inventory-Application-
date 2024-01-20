@@ -1,0 +1,26 @@
+<%-include('components/panel-core')%>
+<main>
+  <h2>Contacts panel</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Co-Founder</th>
+      <th>Delete</th>
+
+    </tr>
+    <%contacts.forEach(contact => { %>
+    <tr>
+      <td>
+        <a href="/panel/update/contact/<%=contact._id%>"> <%=contact.name%> </a>
+      </td>
+      <td><%=contact.type%></td>
+      <td><%=contact.value%></td>
+      <td>
+        <a href="/panel/delete/contact/<%=contact._id%>">Delete</a>
+      </td>
+    </tr>
+
+    <%})%>
+  </table>
+</main>

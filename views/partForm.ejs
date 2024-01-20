@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/global-settings.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <title>Panel</title>
+</head>
+<body>
+    <h2><%=title%></h2>
+    <form action="" method="post">
+        <div>
+            <label for="name">
+                Name:<br>
+                <input type="text" name="name" id="name" value="<%=part === undefined ?  '' : part.name%>">
+            </label>
+        </div>
+        <div>
+            <label for="category">Category</label><br>
+            <select name="category" id="category">
+                <% categories.forEach(category => { %>
+                    <% if(part !== undefined && part.category !== undefined){ %>
+                        <% if(category.name === part.category.name) { %>
+                            <option value="<%=category._id%>" selected><%=category.name%></option>
+                        <% } %>
+                   <% }else{ %>
+                        <option value="<%=category._id%>"><%=category.name%></option>
+                    <% } %>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="brand">Brand</label><br>
+            <select name="brand" id="brand" >
+                Brand: <br>
+                <% brands.forEach(brand => { %>
+                    <% if(part !== undefined && part.brand !== undefined){ %>
+                        <% if(brand.name === part.brand.name){ %>
+                            <option value="<%=brand._id%>" selected><%=brand.name%></option>
+                        <% } %>
+                   <% }else{ %>
+                        <option value="<%=brand._id%>"><%=brand.name%></option>
+                    <% } %>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="amount_in_stock">
+                Amount In Stock:<br>
+                <input type="text" name="amount_in_stock" id="amount_in_stock" value="<%=undefined === part ?  '' : part.amount_in_stock%>">
+            </label>
+        </div>
+        <div>
+            <label for="price">
+                Price:<br>
+                <input type="text" name="price" id="price" value="<%=undefined === part ?  '' : part.price%>">
+            </label>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

@@ -8,11 +8,14 @@
             <th>Category</th>
             <th>Amount In Stock</th>
             <th>Price</th>
+            <th>Delete</th>
         </tr>
         <%parts.forEach(part => { %>
             <tr>
                 <td>
-                    <%=part.name%>
+                    <a href="/panel/update/part/<%=part._id%>">
+                        <%=part.name%>
+                    </a>
                 </td>
                 <td>
                     <%=part.brand.name%>
@@ -25,6 +28,9 @@
                 </td>
                 <td>
                     <%=part.price%>
+                </td>
+                <td>
+                    <a href="/panel/delete/part/<%=part._id%>">Delete</a>
                 </td>
             </tr>
         <%})%>

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const PartSchema = new Schema({
   name: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String, required: false },
   category: { type: Schema.Types.ObjectId, ref: "Category" },
   brand: { type: Schema.Types.ObjectId, ref: "Brand" },
   amount_in_stock: { type: Number, required: true },

@@ -60,3 +60,12 @@ main{
     display: grid;
     place-content: center;
 }
+table{
+    font-size: 14px;
+    max-width: 1000px;
+    border-collapse: collapse;
+}
+td, th{
+    border: var(--border-thin-1) black;
+    padding: var(--padding-small)
+}
